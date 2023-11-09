@@ -203,3 +203,13 @@ jobs:
       - name: Configure kubectl
         run: |
           aws eks update-kubeconfig --name fiap-cluster
+
+      - name: Edit k8s manifests
+        working-directory: kubernetes
+        run: |
+          sed -i 's/image: APPLICATION_IMAGE_HOLDER/image: olegon\/soat1-grupo18-api:${{ github.sha }}/' deployment-api.yaml
+          cat deployment-api.yaml
+
+      - name: Apply changes
+        run: |
+          kubectl apply -f kubernetes
