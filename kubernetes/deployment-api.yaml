@@ -21,17 +21,17 @@ spec:
         resources:
           requests:
             memory: "256Mi"
-            cpu: "250m"
+            cpu: "125m"
           limits:
             memory: "512Mi"
             cpu: "2000m"
         env: 
         - name: SPRING_DATASOURCE_URL
-          value: jdbc:postgresql://database:5432/postgres
+          value: jdbc:postgresql://fiap-food-api.cr0dnn5xiohv.us-east-1.rds.amazonaws.com:5432/fiap_food_api
         - name: SPRING_DATASOURCE_USERNAME
-          value: postgres
+          value: dbuser
         - name: SPRING_DATASOURCE_PASSWORD
-          value: postgres
+          value: dbpassword
         - name: SPRING_JPA_HIBERNATE_DDL_AUTO
           value: update
         - name: AWS_SECRET_ACCESS_KEY
